@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+:root {
+  --jet: #0a0a0a;
+  --carbon: #1a1a1a;
+  --brand-orange: #f5a623;
+  --blaze-orange: #ff6b00;
+  --deep-amber: #d4831a;
+  --white: #ffffff;
+  --accent: #f5a623;
+}
+
+html,
+body {
+  background: var(--jet);
+  color: var(--white);
+  cursor: none;
+}
+
+body {
+  font-family: var(--font-inter), Inter, Arial, sans-serif;
+}
+
+.grain-overlay {
+  background-image: radial-gradient(circle at 20% 30%, rgb(255 255 255 / 0.05), transparent 40%),
+    radial-gradient(circle at 70% 60%, rgb(255 255 255 / 0.04), transparent 35%);
+  mix-blend-mode: soft-light;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--brand-orange), var(--blaze-orange));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.magnetic {
+  transition: transform 0.2s ease;
+}
+
+.ticker {
+  overflow: hidden;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: ticker 30s linear infinite;
+  will-change: transform;
+}
+
+.ticker-item {
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.ticker-item + .ticker-item {
+  margin-left: 18rem;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.float-blob {
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 15px) scale(0.95);
+  }
+}
+
+/* Custom cursor */
+.cursor {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s;
+  mix-blend-mode: difference;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.08s, width 0.2s, height 0.2s;
+  transform: translate(-13px, -13px);
+}
