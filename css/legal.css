@@ -1,0 +1,40 @@
+/* ClimbX Digital — policy pages (Privacy, Refund, Terms). Builds on main.css tokens. */
+.legal-page { background-color: var(--black); background-image: var(--grid-on-dark); background-size: var(--grid-size) var(--grid-size); }
+.legal-page .nav { position: sticky; }
+.legal__back { margin-left: auto; margin-right: 8px; color: var(--muted); font: 700 14px/1 var(--display); text-decoration: none; transition: color .3s; }
+.legal__back:hover { color: var(--orange); }
+
+.legal { padding: 8vh var(--gutter) 14vh; }
+.legal__head { max-width: 1180px; margin: 0 auto 6vh; }
+.legal__head h1 { margin-top: 16px; font: 700 clamp(40px, 6vw, 88px)/1 var(--display); letter-spacing: -.035em; }
+.legal__date { margin-top: 18px; color: var(--muted); font: 500 15px/1.4 var(--tagline); }
+.legal__switch { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.legal__switch a { padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.16); font: 700 13.5px/1 var(--display); text-decoration: none; color: var(--muted); transition: border-color .3s, color .3s, background .3s; }
+.legal__switch a:hover { border-color: var(--orange); color: var(--white); }
+.legal__switch a[aria-current="page"] { background: var(--orange); border-color: var(--orange); color: var(--black); }
+
+.legal__layout { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 280px 1fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
+.legal__toc { position: sticky; top: 110px; padding: 22px; border-radius: var(--radius); background: var(--ink); border: 1px solid rgba(255,255,255,.08); }
+.legal__toc ol { margin-top: 14px; display: grid; gap: 2px; }
+.legal__toc a { display: flex; gap: 10px; padding: 8px 10px; border-radius: 10px; color: var(--muted); font-size: 14px; line-height: 1.35; text-decoration: none; transition: background .25s, color .25s; }
+.legal__toc a span { flex: none; font: 700 12px/1.6 var(--display); color: var(--orange); }
+.legal__toc a:hover { background: rgba(255,255,255,.05); color: var(--white); }
+
+.legal__body { max-width: 760px; }
+.legal__intro p { font: 500 clamp(18px, 1.6vw, 22px)/1.6 var(--tagline); color: rgba(255,255,255,.88); }
+.legal__intro p + p { margin-top: 16px; }
+.legal__body section { padding: 34px 0; border-top: 1px solid rgba(255,255,255,.1); scroll-margin-top: 100px; }
+.legal__intro + section { margin-top: 34px; }
+.legal__body h2 { display: flex; align-items: baseline; gap: 14px; font: 700 clamp(22px, 2vw, 28px)/1.2 var(--display); letter-spacing: -.02em; }
+.legal__body h2 span { font-size: .6em; color: var(--orange); }
+.legal__body p { margin-top: 14px; color: rgba(255,255,255,.75); font-size: 16px; line-height: 1.7; }
+.legal__body ul { margin-top: 14px; display: grid; gap: 10px; }
+.legal__body li { position: relative; padding-left: 24px; color: rgba(255,255,255,.8); font-size: 16px; line-height: 1.55; }
+.legal__body li::before { content: ""; position: absolute; left: 4px; top: .62em; width: 8px; height: 8px; border-radius: 2px; background: var(--orange); transform: rotate(45deg); }
+.legal__body a { color: var(--orange); text-underline-offset: 3px; }
+
+@media (max-width: 900px) {
+  .legal__layout { grid-template-columns: 1fr; }
+  .legal__toc { position: static; }
+  .legal__back { display: none; }
+}
